@@ -3,8 +3,8 @@ class Array
   def sample(n = 1, random: nil, weight: nil)
     return _sample(n, random: random) unless weight
 
-    unless weight.select {|w| w > 0}.size == n
-      raise ArgumentError, "weight size must be equal to sample number(#{n})"
+    unless weight.select {|w| w > 0}.size > n
+      raise ArgumentError, "weight size must be larger than sample number(#{n})"
     end
 
     sum = weight.inject(0.0, :+)
