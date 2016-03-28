@@ -4,8 +4,10 @@ class Array
     return call_original_sample(n, random: random) if (weight.nil? || self.size <= 1)
 
     unless weight.select {|w| w > 0}.size >= self.size
-      raise ArgumentError, "weight size must be larger than or equal to sample number(#{self.size})"
+      raise ArgumentError, "weight size must be equal to array size(#{self.size})"
     end
+
+    n = self.size if n > self.size
 
     begin
       sum = weight.inject(0.0, :+)
