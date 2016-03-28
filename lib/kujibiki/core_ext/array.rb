@@ -7,6 +7,8 @@ class Array
       raise ArgumentError, "weight size must be larger than or equal to sample number(#{self.size})"
     end
 
+    n = self.size if n > self.size
+
     begin
       sum = weight.inject(0.0, :+)
       normalized_hash = self.each_with_object({}).with_index do |(e, h), i|
