@@ -17,8 +17,8 @@ class Array
       end
     end
 
-    unless weight.select {|w| w > 0}.size >= n
-      raise ArgumentError, "weight size must be larger than or equal to sample number(#{n})"
+    unless weight.select {|w| w > 0}.size >= self.size
+      raise ArgumentError, "weight size must be larger than or equal to sample number(#{self.size})"
     end
 
     sum = weight.inject(0.0, :+)

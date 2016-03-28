@@ -21,7 +21,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-require 'Kujibiki/array'
+require 'kujibiki/array'
 
 %w( GreatBlessing Blessing Curse ).sample(weight: [1, 3, 1])
 #=> "Blessing" ("Blessing" is 3 times easy to be returned than others)
