@@ -1,7 +1,21 @@
 class Array
   alias_method :_sample, :sample
-  def sample(n = 1, random: nil, weight: nil)
-    return _sample(n, random: random) unless weight
+  def sample(n=nil, random: nil, weight: nil)
+    unless weight
+      if n
+        if random
+          return _sample(n, random: random)
+        else
+          return _sample(n)
+        end
+      else
+        if random
+          return _sample(random: random)
+        else
+          return _sample
+        end
+      end
+    end
 
     unless weight.select {|w| w > 0}.size >= n
       raise ArgumentError, "weight size must be larger than or equal to sample number(#{n})"
