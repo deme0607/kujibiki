@@ -7,6 +7,7 @@ class Array
       raise ArgumentError, "weight size must be equal to array size(#{self.size})"
     end
 
+    n = 1 unless n
     n = self.size if n > self.size
 
     begin
